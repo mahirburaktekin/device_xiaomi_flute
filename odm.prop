@@ -1,0 +1,48 @@
+# Stock odm build.prop (OS3.0.303.0.WPWMIXM)
+import odm/etc/boardid_property/${ro.boot.board_id}.prop
+persist.vendor.tracking.dfs=true
+ro.vendor.s2_reboot_time=12
+persist.vendor.dolby.enable.c2fence=false
+vendor.display.force_tonemapping=1
+ro.vendor.audio.karaoke.enable=true
+ro.miui.audio.karaoke.suppot.lowlatency=true
+ro.vendor.audio.camera.loopback.support=true
+vendor.audio.rt.mode=55
+vendor.audio.rt.mode.onlyfast=false
+vendor.audio.cpu.sched=31
+vendor.audio.cpu.sched.cpuset.at=255
+vendor.audio.cpu.sched.cpuset.af=255
+vendor.audio.cpu.sched.cpuset.hb=255
+vendor.audio.cpu.sched.cpuset.hso=255
+vendor.audio.cpu.sched.cpuset.he=255
+vendor.audio.cpu.sched.cpus=8
+vendor.audio.cpu.sched.onlyfast=false
+ro.vendor.audio.soundtrigger=sva
+ro.vendor.audio.soundtrigger.lowpower=true
+ro.vendor.audio.soundtrigger.training.level=50
+ro.vendor.audio.soundtrigger.xanzn.gmm.level=66
+ro.vendor.audio.soundtrigger.xanzn.gmm.user.level=66
+ro.vendor.audio.soundtrigger.xanzn.cnn.level=158
+ro.vendor.audio.soundtrigger.xanzn.vop.level=41
+ro.vendor.audio.soundtrigger.xatx.gmm.level=54
+ro.vendor.audio.soundtrigger.xatx.gmm.user.level=54
+ro.vendor.audio.soundtrigger.xatx.cnn.level=95
+ro.vendor.audio.soundtrigger.xatx.vop.level=0
+ro.vendor.audio.soundtrigger.appdefine.gmm.level=65
+ro.vendor.audio.soundtrigger.appdefine.gmm.user.level=55
+ro.vendor.audio.soundtrigger.appdefine.cnn.level=45
+ro.vendor.audio.soundtrigger.appdefine.vop.level=10
+ro.vendor.audio.soundtrigger.snr=6
+ro.vendor.audio.soundtrigger.xiaomievent=1
+ro.vendor.audio.soundtrigger.pangaea=1
+ro.vendor.audio.soundtrigger.wakeupword=3
+ro.vendor.audio.soundtrigger.qcom1st.sva=1
+ro.vendor.audio.soundtrigger.sva-8.0=1
+ro.vendor.audio.soundtrigger.snr.enable=0
+persist.vendor.low.cutoff=true
+ro.product.camera.livephoto.support=3
+persist.vendor.camera.facetracker.support=1
+persist.vendor.vcb.ability=1
+persist.sys.miui.camera.quickcamera.supported=false
+import /odm/etc/${ro.boot.product.hardware.sku}_build.prop
+import /odm/etc/${ro.boot.product.hardware.sku}_${ro.boot.ptcountrycode}_build.prop
