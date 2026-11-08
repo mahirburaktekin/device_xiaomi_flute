@@ -31,10 +31,12 @@ BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_MKBOOTIMG_ARGS += \
+    --header_version $(BOARD_BOOT_HEADER_VERSION) \
     --kernel_offset 0x00008000 \
     --ramdisk_offset 0x01000000 \
     --tags_offset 0x00000100 \
     --dtb_offset 0x01f00000
+BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 BOARD_RAMDISK_USE_LZ4 := true
 
 # Stock vendor_boot cmdline ve bootconfig
@@ -71,12 +73,11 @@ BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVIC
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(DEVICE_PATH)/modules/vendor_boot.modules.blocklist
 
 # system_dlkm: GKI modülleri, kernel ile aynı GKI build'inden olmalı
-BOARD_USES_SYSTEM_DLKMIMAGE := true
 # Google GKI system_dlkm.img ext4 (stock fstab ext4 ve erofs satırlarının ikisini de içeriyor)
 BOARD_SYSTEM_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_SYSTEM_DLKM := system_dlkm
-# Google'ın flatten imajı: stock ile aynı yerleşim (/system_dlkm/flatten/lib/modules)
-BOARD_PREBUILT_SYSTEM_DLKM_IMAGE := $(DEVICE_PATH)/prebuilt/gki/system_dlkm.img
+# Google GKI system_dlkm.img (/system_dlkm/lib/modules/<kver>/modules.load)
+BOARD_PREBUILT_SYSTEM_DLKMIMAGE := $(DEVICE_PATH)/prebuilt/gki/system_dlkm.img
 
 # Dosya sistemleri
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
@@ -92,7 +93,6 @@ TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
-BOARD_USES_VENDOR_DLKMIMAGE := true
 
 # Vendor/odm/vendor_dlkm: stock blob'lardan (vendor/xiaomi/flute) derlenir
 FLUTE_VENDOR_DLKM := vendor/xiaomi/flute/proprietary/vendor_dlkm/lib/modules
@@ -101,8 +101,8 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := $(notdir $(strip $(shell cat $(FLUTE_VENDOR_
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(wildcard $(FLUTE_VENDOR_DLKM)/modules.blocklist)
 
 # Vendor API 34 (blob'lar Android 14 SDK ile derlenmiş)
+# BOARD_API_LEVEL elle ayarlanamaz (AOSP 16); vendor seviyesi device.mk'de ro.board.api_level=34
 BOARD_SHIPPING_API_LEVEL := 34
-BOARD_API_LEVEL := 34
 VENDOR_SECURITY_PATCH := 2026-05-05
 
 # Sepolicy: çalışma anında stock vendor/odm politikası (blob) kullanılır.
@@ -130,6 +130,9 @@ TARGET_ODM_PROP := $(DEVICE_PATH)/odm.prop
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_DUP_SYSPROP := true
+# Stock vendor dosyaları (sh, toybox, selinux, passwd, fs_config...) AOSP modülleriyle
+# aynı yola kuruluyor; kopya (stock) kazanır.
+BUILD_BROKEN_DUP_RULES := true
 
 # Dinamik bölümler (super)
 BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
@@ -157,3 +160,5 @@ BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 2
 
+# SELinux: stock vendor/odm politikası açılışta derlensin (precompiled yok)
+PRODUCT_PRECOMPILED_SEPOLICY := false

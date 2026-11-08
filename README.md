@@ -19,7 +19,7 @@ Redmi Pad 2 Pro (flute, SM7635/volcano). Vendor API 34 + Android 16 framework + 
     git clone https://github.com/mahirburaktekin/device_xiaomi_flute device/xiaomi/flute
     git clone https://github.com/mahirburaktekin/vendor_xiaomi_flute vendor/xiaomi/flute
     source build/envsetup.sh
-    lunch aosp_flute-trunk_staging-userdebug   # release tag'inde: ls build/release/release_configs/
+    lunch aosp_flute-bp4a-userdebug   # release tag'inde: ls build/release/release_configs/
     m
 
 ## Kernel güncelleme (isteğe bağlı)

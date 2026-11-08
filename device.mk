@@ -20,7 +20,6 @@ PRODUCT_PACKAGES += \
     update_engine_sideload \
     update_verifier \
     otapreopt_script \
-    checkpoint_gc \
     fastbootd
 
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -45,3 +44,34 @@ PRODUCT_COPY_FILES += \
 # GKI kernel (fetch-gki.sh ile indirilir)
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/prebuilt/gki/Image:kernel
+
+# Stock vendor HIDL HAL'leri kullanıyor (shipping 35'te AOSP bunları eklemiyor)
+PRODUCT_HIDL_ENABLED := true
+PRODUCT_PACKAGES += \
+    hwservicemanager \
+    android.hidl.allocator@1.0-service \
+    android.hidl.memory@1.0-impl
+
+# base_vendor.mk kullanılmıyor (stock vendor dosyaları korunsun diye); gerekenler:
+PRODUCT_PACKAGES += \
+    adbd.recovery \
+    cgroups.recovery.json \
+    charger.recovery \
+    init_second_stage.recovery \
+    ld.config.recovery.txt \
+    linker.recovery \
+    otacerts.recovery \
+    recovery \
+    servicemanager.recovery \
+    shell_and_utilities_recovery \
+    watchdogd.recovery \
+    odm-build.prop \
+    vendor_compatibility_matrix.xml
+
+# Vendor dondurulmuş: API 34 (stock ile aynı)
+PRODUCT_VENDOR_PROPERTIES += ro.board.api_level=34
+
+# SELinux: stock vendor/odm politikası açılışta derlenir (precompiled kullanılmaz),
+# genfs etiketleri stock vendor'ın beklediği sürümde kalır.
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/sepolicy/genfs_labels_version.txt:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/genfs_labels_version.txt

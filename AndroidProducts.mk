@@ -1,2 +1,4 @@
 PRODUCT_MAKEFILES := $(LOCAL_DIR)/aosp_flute.mk
-COMMON_LUNCH_CHOICES := aosp_flute-trunk_staging-userdebug
+COMMON_LUNCH_CHOICES := \
+    aosp_flute-bp4a-userdebug \
+    aosp_flute-trunk_staging-userdebug
