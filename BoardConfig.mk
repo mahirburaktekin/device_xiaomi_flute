@@ -1,8 +1,11 @@
 DEVICE_PATH := device/xiaomi/flute
 
 # Cihazdan okundu (fastboot getvar partition-size:*)
-BOARD_SUPER_PARTITION_SIZE := 12348030976 # 0x2E0000000 (araçlar onluk sayı istiyor)
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600 # 0x6400000
+# Boyutlar onluk yazılmalı (check_partition_sizes onaltılık kabul etmiyor)
+# 0x2E0000000
+BOARD_SUPER_PARTITION_SIZE := 12348030976
+# 0x6400000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600
 
 ifneq ($(words $(wildcard $(DEVICE_PATH)/prebuilt/gki/Image $(DEVICE_PATH)/prebuilt/gki/system_dlkm.img)),2)
 $(error GKI eksik (Image ve system_dlkm.img gerekli): device/xiaomi/flute/fetch-gki.sh çalıştır)
