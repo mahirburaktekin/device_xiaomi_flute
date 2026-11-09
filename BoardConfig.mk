@@ -119,7 +119,7 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 # VINTF (stock; SKU = volcano)
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/vintf/manifest_volcano.xml
 DEVICE_MANIFEST_SKUS := volcano
-DEVICE_MANIFEST_volcano_FILES := $(DEVICE_PATH)/vintf/manifest_volcano.xml
+DEVICE_MANIFEST_VOLCANO_FILES := $(DEVICE_PATH)/vintf/manifest_volcano.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/vintf/compatibility_matrix.xml
 
 # Properties (stock)
