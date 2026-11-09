@@ -10,7 +10,7 @@
          ro.vendor.display.default_fps=120). Varsayılan tepe hızı 120 Hz. -->
     <integer name="config_defaultPeakRefreshRate">120</integer>
     <!-- 0: tepe hızı varsayılan hız olarak kullanılır (AOSP config.xml açıklaması). -->
-    <integer name="config_defaultRefreshRate">0</integer>
+    <integer name="config_defaultRefreshRate">120</integer>
 
     <!-- Stock vendor overlay'deki ekran şekli 1080x2400 bir telefona ait
          ("M20 0h1040 ... v2360"), bu panelle uyuşmuyor. Şimdilik boş (dikdörtgen).
