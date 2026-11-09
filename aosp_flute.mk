@@ -8,7 +8,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
 
 $(call inherit-product, device/xiaomi/flute/device.mk)
 
-PRODUCT_NAME := aosp_flute
+PRODUCT_NAME := custom_flute
 PRODUCT_DEVICE := flute
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := 25099RP13G
