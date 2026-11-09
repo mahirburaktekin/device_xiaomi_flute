@@ -109,11 +109,10 @@ VENDOR_SECURITY_PATCH := 2026-05-05
 # Buradaki dizin yalnızca imajları stock etiketleriyle etiketlemek için tip tanımları içerir.
 BOARD_SEPOLICY_VERS := 34.0
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-# Stock vendor politikasının istediği Qualcomm system_ext tipleri + 34.0 eşlemesi
+# Stock vendor politikasının istediği Qualcomm system_ext tipleri.
+# 34.0 eşlemesi (typeattributeset X_34_0) vendor tree'de vendor_sepolicy.cil sonunda:
+# system_ext eşleme dosyasına konunca 34.0_compat_test, prebuilt dizin verilince treble testleri patlıyor.
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/qcom_system_ext/public
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/qcom_system_ext/private
-# Aynı tiplerin 34.0 (stock) public hali: 34.0 uyumluluk testi eşlemeyi bununla doğrular
-BOARD_SYSTEM_EXT_SEPOLICY_PREBUILT_DIRS += $(DEVICE_PATH)/sepolicy/qcom_system_ext/prebuilt
 
 # Dosya sahiplikleri/yetkileri (stock fs_config_files'tan)
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
