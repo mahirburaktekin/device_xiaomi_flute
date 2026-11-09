@@ -14,3 +14,7 @@ PRODUCT_DEVICE := flute
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := 25099RP13G
 PRODUCT_MANUFACTURER := Xiaomi
+
+# Maintainer
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.custom.maintainer=vaharai
