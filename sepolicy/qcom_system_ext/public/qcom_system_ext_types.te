@@ -22,7 +22,6 @@ type vendor_location_app, coredomain, domain;
 type vendor_mm_parser_prop, property_type, system_property_type, system_public_property_type;
 type vendor_mmi_sys, domain;
 type vendor_perfservice, coredomain, domain;
-type vendor_persist_camera_prop, property_type, system_property_type, system_restricted_property_type;
 type vendor_persist_dpm_prop, property_type, system_property_type, system_public_property_type;
 type vendor_persist_rcs_prop, property_type, system_property_type, system_public_property_type;
 type vendor_persist_tcm_prop, property_type, system_property_type, system_public_property_type;
