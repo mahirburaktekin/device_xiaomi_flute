@@ -1,11 +1,11 @@
-# Saf AOSP, yalnızca 64-bit (stock: zygote64, abilist32 boş)
+# Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system_ext.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
+# Inherit some common PixelOS stuff.
+$(call inherit-product, vendor/custom/config/common_full_tablet_wifionly.mk)
+
+# Inherit from flute device
 $(call inherit-product, device/xiaomi/flute/device.mk)
 
 PRODUCT_NAME := custom_flute
