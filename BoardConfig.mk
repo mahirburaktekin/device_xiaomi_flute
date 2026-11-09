@@ -47,6 +47,9 @@ BOARD_BOOTCONFIG := \
     androidboot.usbcontroller=4e00000.dwc3 \
     androidboot.load_modules_parallel=true
 
+# Bring-up (GEÇİCİ): SELinux permissive (yalnızca userdebug/eng'de etkili)
+BOARD_BOOTCONFIG += androidboot.selinux=permissive
+
 # DTB (vendor_boot) ve DTBO (stock'tan)
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb

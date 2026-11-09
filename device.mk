@@ -76,3 +76,11 @@ PRODUCT_VENDOR_PROPERTIES += ro.board.api_level=34
 # genfs etiketleri stock vendor'ın beklediği sürümde kalır.
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/sepolicy/genfs_labels_version.txt:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/genfs_labels_version.txt
+
+# --- Bring-up (GEÇİCİ: ilk boot sonrası kaldır) ---
+# adb onay beklemeden açılsın (bootloop'ta logcat alabilmek için),
+# izin listesi eksikleri system_server'ı çökertmesin, sadece loglansın.
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.adb.secure=0 \
+    persist.sys.usb.config=adb \
+    ro.control_privapp_permissions=log
