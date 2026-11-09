@@ -4,6 +4,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 # Inherit some common PixelOS stuff.
 $(call inherit-product, vendor/custom/config/common_full_tablet_wifionly.mk)
+TARGET_SCREEN_WIDTH := 1600
 
 # Inherit from flute device
 $(call inherit-product, device/xiaomi/flute/device.mk)
