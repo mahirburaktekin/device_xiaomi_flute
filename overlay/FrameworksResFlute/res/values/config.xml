@@ -16,4 +16,9 @@
          ("M20 0h1040 ... v2360"), bu panelle uyuşmuyor. Şimdilik boş (dikdörtgen).
          TODO: cihazda gerçek panel boyutu/yönü (dumpsys display) ile doğru SVG yolu yazılacak. -->
     <string name="config_mainDisplayShape" translatable="false"></string>
+
+    <!-- Masaüstü pencere modu (tablet). Android 16'da ayrıca aconfig bayraklarına
+         bağlı; tek başına yetmeyebilir, cihazda doğrulanacak. -->
+    <bool name="config_isDesktopModeSupported">true</bool>
+    <bool name="config_isDesktopModeDevOptionSupported">true</bool>
 </resources>
