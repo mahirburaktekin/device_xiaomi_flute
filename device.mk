@@ -28,10 +28,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=erofs \
     POSTINSTALL_OPTIONAL_system=true
 
-# Overlay'ler
-PRODUCT_PACKAGES += \
-    FrameworksResFlute
-
 # Tablet, 320 dpi (xhdpi)
 PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_AAPT_CONFIG := normal large xlarge
