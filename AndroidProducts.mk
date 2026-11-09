@@ -1,4 +1,8 @@
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/aosp_flute.mk
-COMMON_LUNCH_CHOICES := \
-    aosp_flute-bp4a-userdebug \
-    aosp_flute-trunk_staging-userdebug
+#
+# Copyright (C) 2024 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/custom_flute.mk
