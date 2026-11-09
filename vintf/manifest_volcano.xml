@@ -89,7 +89,8 @@
         <transport>hwbinder</transport>
         <fqname>@1.0::ITouchFeature/default</fqname>
     </hal>
-    <sepolicy>
-        <version>34.0</version>
-    </sepolicy>
+    <!-- sepolicy sürümü burada yazılmaz: AOSP 16 BOARD_SEPOLICY_VERS'i (202504)
+         derleme sırasında kendisi ekliyor, elle yazılan 34.0 ile çakışıyor.
+         Cihazda SELinux, stock vendor'un /vendor/etc/selinux/plat_sepolicy_vers.txt
+         (34.0) dosyasına göre eşleme seçer; bu değer etkilenmez. -->
 </manifest>
