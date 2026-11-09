@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    flute (Redmi Pad 2 Pro) framework ayarları.
+    Stock vendor overlay'i (FrameworksResTarget_Vendor) zaten kuruluyor:
+    power_profile (12000 mAh, 4+3+1 çekirdek), rounded_corner_radius=20dp,
+    AOD ve Wi-Fi ayarları oradan geliyor. Burada sadece eksik/yanlış olanlar var.
+-->
+<resources>
+    <!-- Panel 120/90/60/50 Hz destekliyor (ro.vendor.display.dynamic_refresh_rate,
+         ro.vendor.display.default_fps=120). Varsayılan tepe hızı 120 Hz. -->
+    <integer name="config_defaultPeakRefreshRate">120</integer>
+    <!-- 0: tepe hızı varsayılan hız olarak kullanılır (AOSP config.xml açıklaması). -->
+    <integer name="config_defaultRefreshRate">0</integer>
+
+    <!-- Stock vendor overlay'deki ekran şekli 1080x2400 bir telefona ait
+         ("M20 0h1040 ... v2360"), bu panelle uyuşmuyor. Şimdilik boş (dikdörtgen).
+         TODO: cihazda gerçek panel boyutu/yönü (dumpsys display) ile doğru SVG yolu yazılacak. -->
+    <string name="config_mainDisplayShape" translatable="false"></string>
+</resources>

@@ -1,0 +1,8 @@
+//
+// flute: framework-res overlay
+//
+
+runtime_resource_overlay {
+    name: "FrameworksResFlute",
+    product_specific: true,
+}
