@@ -119,10 +119,8 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/qcom_system_ext/priv
 # Dosya sahiplikleri/yetkileri (stock fs_config_files'tan)
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
-# VINTF (stock; SKU = volcano)
+# VINTF (stock manifest; ayrı SKU manifest'i yok — aynı dosya iki kez kurulursa HAL tanımları çiftlenir)
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/vintf/manifest_volcano.xml
-DEVICE_MANIFEST_SKUS := volcano
-DEVICE_MANIFEST_VOLCANO_FILES := $(DEVICE_PATH)/vintf/manifest_volcano.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/vintf/compatibility_matrix.xml
 
 # Properties (stock)
